@@ -56,3 +56,10 @@ colors:
 
 font:
   size: 13
+
+window:
+   dimensions:
+     columns: 100
+     lines: 25
+
+
