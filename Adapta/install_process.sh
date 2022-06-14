@@ -25,16 +25,25 @@ cp -r sxhkd ~/.config/
 chmod +x ~/.config/sxhkd/sxhkdrc # make it executable
 
 
+#copy fonts
+sudo cp -r fonts/* /usr/share/fonts
+
 
 #install nitrogen
 sudo pacman -S nitrogen
 sudo cp -r backgrounds/* /usr/share
 
-sudo pacman -S alacritty
 
+#install kitty
+sudo pacman -S kitty
+cp -r kitty ~/.config
 
-#install zsh and oh-my-zsh
+#install vbox stuff
+sudo pacman -S virtualbox-guest-utils
+sudo systemctl enable vboxservice.service
+
+#install zsh and starship. copy my .zshrc over
 sudo pacman -S zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-
+curl -sS https://starship.rs/install.sh | sh
+cp .zshrc ~/
+sudo chsh -s $(which zsh) # change default shell

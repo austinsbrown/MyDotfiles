@@ -5,15 +5,15 @@
 
 # Terminal (alacritty)
 super + Return
-	alacritty
+	kitty
 
 # Terminal (floating)
 super + shift + Return
-	alacritty -f
+	kitty -f
 
 # Terminal (fullscreen)
 super + t
-	alacritty -s	
+	kitty -s	
 
 ##---------- Rofi Launcher & Menus ----------##
 
