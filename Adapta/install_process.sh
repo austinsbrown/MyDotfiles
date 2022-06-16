@@ -25,13 +25,16 @@ cp -r sxhkd ~/.config/
 chmod +x ~/.config/sxhkd/sxhkdrc # make it executable
 
 
-#copy fonts
+# copy fonts
 sudo cp -r fonts/* /usr/share/fonts
 
 
 #install nitrogen
 sudo pacman -S nitrogen
-sudo cp -r backgrounds/* /usr/share
+sudo mkdir /usr/share/backgrounds
+sudo cp -r backgrounds/* /usr/share/backgrounds
+mkdir ~/.config/nitrogen
+cp -r nitrogen/* ~/.config/nitrogen
 
 
 #install kitty
@@ -46,4 +49,4 @@ sudo systemctl enable vboxservice.service
 sudo pacman -S zsh
 curl -sS https://starship.rs/install.sh | sh
 cp .zshrc ~/
-sudo chsh -s $(which zsh) # change default shell
+chsh -s $(which zsh) # change default shell
