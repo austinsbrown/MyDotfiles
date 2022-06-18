@@ -19,3 +19,9 @@ bspc rule -a Screenkey manage=off
 
 # restore wallpaper on startup
 nitrogen --restore &
+
+# start polybar
+sh .config/bspwm/bin/launch_polybar.sh 
+
+# start compositing
+picom --config ~/.config/picom/picom.conf

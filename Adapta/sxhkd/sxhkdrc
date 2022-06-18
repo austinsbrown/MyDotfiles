@@ -7,63 +7,21 @@
 super + Return
 	kitty
 
-# Terminal (floating)
-super + shift + Return
-	kitty -f
-
-# Terminal (fullscreen)
-super + t
-	kitty -s	
-
 ##---------- Rofi Launcher & Menus ----------##
 
 # Rofi App Launcher
-alt + F1
-	sh ~/.config/bspwm/rofi/bin/launcher
-
-# Rofi Network Menu
-super + n
-	nmd
-
-# Rofi Themes Menu
-ctrl + alt + t
-	sh ~/.config/bspwm/rofi/bin/themes
-
-# Rofi Menus/Applets
-super + {w,m,x,r,s}
-	sh ~/.config/bspwm/rofi/bin/{windows,mpd,powermenu,asroot,screenshot}
+super + x
+	rofi -show drun
 
 ##---------- Applications ----------##
 
 # Launch Apps
 super + shift + {f,w,e}
-	{thunar,firefox,geany}
+	{thunar,firefox,code}
 
 # Lockscreen
 ctrl + alt + l
     betterlockscreen --lock
-
-##---------- System Keys ----------##
-
-# Take a screenshot
-Print
-	takeshot --now
-	
-# Take screenshot in 5 second
-alt + Print	
-	takeshot --in5
-
-# Take screenshot in 10 second
-shift + Print	
-	takeshot --in10
-
-# Take screenshot of active window
-ctrl + Print
-	takeshot --win
-
-# Take screenshot of area
-ctrl + alt + Print
-	takeshot --area
 
 # Brighness control
 XF86MonBrightness{Up,Down}
