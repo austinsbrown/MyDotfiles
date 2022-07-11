@@ -46,6 +46,8 @@ sudo cp -r backgrounds/* /usr/share/backgrounds
 mkdir ~/.config/nitrogen
 cp -r nitrogen/* ~/.config/nitrogen
 
+# neofetch
+cp -r neofetch ~/.config
 
 # install kitty
 sudo pacman -S kitty
