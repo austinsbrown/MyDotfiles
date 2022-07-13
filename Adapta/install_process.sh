@@ -31,6 +31,9 @@ chmod +x ~/.config/sxhkd/sxhkdrc # make it executable
 # copy fonts
 sudo cp -r fonts/* /usr/share/fonts
 
+# copy themes
+sudo cp -r themes/ /usr/share/themes/
+
 
 sudo pacman -S polybar
 sudo pacman -S pacman-contrib
@@ -68,5 +71,5 @@ cp .zshrc ~/
 chsh -s $(which zsh) # change default shell
 
 # install msc. apps
-sudo pacman -S vim ranger firefox neofetch reflector rsync thunar
+sudo pacman -S vim ranger firefox neofetch reflector rsync thunar lxappearance
 yay -S visual-studio-code-bin
