@@ -31,7 +31,7 @@ esac
 sudo pacman -S  sddm bspwm sxhkd polybar picom nitrogen kitty rofi \
                 zsh vim ranger firefox neofetch reflector rsync \
                 thunar lxappearance pacman-contrib fish \
-                thunar-volman gvfs
+                thunar-volman gvfs xfce4-settings
 
 yay -S visual-studio-code-bin ksuperkey
 
