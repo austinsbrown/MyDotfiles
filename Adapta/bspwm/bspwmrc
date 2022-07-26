@@ -19,3 +19,6 @@ sh .config/bspwm/bin/launch_polybar.sh
 
 # start compositing
 picom --config ~/.config/picom/picom.conf
+
+# file manager daemon
+thunar --daemon
