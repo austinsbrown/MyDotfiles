@@ -15,10 +15,14 @@ bspc config gapless_monocle      true
 nitrogen --restore &
 
 # start polybar
-sh .config/bspwm/bin/launch_polybar.sh 
+sh .config/bspwm/bin/launch_polybar.sh &
 
 # start compositing
-picom --config ~/.config/picom/picom.conf
+picom --config ~/.config/picom/picom.conf &
 
 # file manager daemon
-thunar --daemon
+thunar --daemon &
+
+# map rofi to super key
+ksuperkey -e 'Super_L=Alt_L|F1' &
+ksuperkey -e 'Super_R=Alt_L|F1' &

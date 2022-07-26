@@ -33,7 +33,7 @@ sudo pacman -S  sddm bspwm sxhkd polybar picom nitrogen kitty rofi \
                 thunar lxappearance pacman-contrib fish \
                 thunar-volman gvfs
 
-yay -S visual-studio-code-bin
+yay -S visual-studio-code-bin ksuperkey
 
 # fix dual boot time issue
 sudo timedatectl set-local-rtc 1
