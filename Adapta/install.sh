@@ -78,6 +78,9 @@ cp -r kitty ~/.config
 # install rofi
 cp -r rofi ~/.config/
 
+# set up vim
+cp -r VimFiles/.* ~/
+
 # set up fish and starship
 curl -sS https://starship.rs/install.sh | sh
 mkdir ~/.config/fish
