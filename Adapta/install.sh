@@ -30,8 +30,9 @@ esac
 # install everything else
 sudo pacman -S  sddm bspwm sxhkd polybar picom nitrogen kitty rofi \
                 zsh vim ranger firefox neofetch reflector rsync \
-                thunar lxappearance pacman-contrib fish \
-                thunar-volman gvfs xfce4-settings
+                thunar  pacman-contrib fish \
+                thunar-volman gvfs xfce4-settings alsa-utils \
+                dunst gpick
 
 yay -S visual-studio-code-bin ksuperkey
 
@@ -80,6 +81,10 @@ cp -r rofi ~/.config/
 
 # set up vim
 cp -r VimFiles/.* ~/
+
+# scripts
+mkdir /usr/local/bin/
+sudo cp -r bin/* /usr/local/bin/
 
 # set up fish and starship
 curl -sS https://starship.rs/install.sh | sh
