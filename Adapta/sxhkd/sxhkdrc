@@ -13,6 +13,9 @@ alt + F1
 super + n
 	sh .config/rofi/wifi/rofi-wifi-menu.sh
 
+super + x
+	rofi -show window
+
 ##---------- Applications ----------##
 
 
