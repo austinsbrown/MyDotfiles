@@ -15,7 +15,7 @@ bspc config gapless_monocle      true
 nitrogen --restore &
 
 # start polybar
-sh .config/bspwm/bin/launch_polybar.sh &
+sh .config/polybar/scripts/launch_polybar.sh &
 
 # start compositing
 picom --config ~/.config/picom/picom.conf &
