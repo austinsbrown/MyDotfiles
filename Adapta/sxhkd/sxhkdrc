@@ -10,6 +10,12 @@ super + Return
 alt + F1
 	rofi -show drun
 
+super + n
+	sh .config/rofi/wifi/rofi-wifi-menu.sh
+
+super + x
+	rofi -show window
+
 ##---------- Applications ----------##
 
 
@@ -53,10 +59,6 @@ super + shift + space
 #super + {p,t}
     bspc node -t "~"{pseudo_tiled,tiled}
 
-# Set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
-
 # Send the window to another edge of the screen
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
@@ -89,8 +91,18 @@ super + alt + {Left,Right,Up,Down}
 alt + shift + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# Hide/Unhide Window
-super + shift + i
-	winmask		
+## volume down
+XF86AudioLowerVolume
+	amixer set Master 5%-
 
+## volume up
+XF86AudioRaiseVolume
+	amixer set Master 5%+
+
+## volume mute/unmute
+XF86AudioMute
+        amixer set Master toggle
+
+XF86MonBrightness{Up,Down}  
+  brightnessctl s 375{+,-}  
 ##---------- EOF ----------##
