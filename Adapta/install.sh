@@ -30,8 +30,8 @@ esac
 # install everything else
 sudo pacman -S  sddm bspwm sxhkd polybar picom nitrogen kitty rofi \
                 zsh vim ranger firefox neofetch reflector rsync \
-                thunar lxappearance pacman-contrib fish \
-                thunar-volman gvfs
+                thunar lxappearance pacman-contrib fish exa \
+                thunar-volman gvfs brightnessctl
 
 yay -S visual-studio-code-bin ksuperkey
 

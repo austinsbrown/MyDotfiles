@@ -102,4 +102,7 @@ XF86AudioRaiseVolume
 ## volume mute/unmute
 XF86AudioMute
         amixer set Master toggle
+
+XF86MonBrightness{Up,Down}  
+  brightnessctl s 375{+,-}  
 ##---------- EOF ----------##
