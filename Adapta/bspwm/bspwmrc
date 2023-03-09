@@ -26,3 +26,6 @@ thunar --daemon &
 # map rofi to super key
 ksuperkey -e 'Super_L=Alt_L|F1' &
 ksuperkey -e 'Super_R=Alt_L|F1' &
+
+# activate settings daemon
+xfsettingsd&
