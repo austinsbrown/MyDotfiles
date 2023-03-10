@@ -16,6 +16,9 @@ super + n
 super + x
 	rofi -show window
 
+super + m
+	rofi -show calc -modi calc -no-show-match -no-sort
+
 ##---------- Applications ----------##
 
 

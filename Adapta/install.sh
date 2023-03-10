@@ -31,7 +31,8 @@ esac
 sudo pacman -S  sddm bspwm sxhkd polybar picom nitrogen kitty rofi \
                 zsh vim ranger firefox neofetch reflector rsync \
                 thunar lxappearance pacman-contrib fish exa \
-                thunar-volman gvfs brightnessctl xfce4-settings-manager
+                thunar-volman gvfs brightnessctl xfce4-settings-manager \
+                rofi-calc
 
 yay -S visual-studio-code-bin ksuperkey
 
