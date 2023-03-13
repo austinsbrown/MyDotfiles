@@ -34,7 +34,7 @@ sudo pacman -S  sddm bspwm sxhkd polybar picom nitrogen kitty rofi \
                 thunar-volman gvfs brightnessctl xfce4-settings-manager \
                 rofi-calc
 
-yay -S visual-studio-code-bin ksuperkey
+yay -S visual-studio-code-bin ksuperkey i3lock-fancy
 
 # fix dual boot time issue
 sudo timedatectl set-local-rtc 1

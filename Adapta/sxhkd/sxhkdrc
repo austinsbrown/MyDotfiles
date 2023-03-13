@@ -24,6 +24,10 @@ super + m
 
 ##---------- Bspwm ----------##
 
+# lock screen
+super + l
+	i3lock-fancy
+
 # Close App
 super + {_,shift + }c
 	bspc node -{c,k}
