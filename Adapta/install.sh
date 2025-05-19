@@ -4,10 +4,10 @@
 sudo pacman -Syu
 
 # install grub
-sudo pacman -S grub os-prober
-sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-sudo os-prober
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+#sudo pacman -S grub os-prober
+#sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+#sudo os-prober
+#sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # install yay
 sudo pacman -S --needed git base-devel
@@ -28,8 +28,8 @@ case $yn in
 esac
 
 # install everything else
-sudo pacman -S  sddm bspwm sxhkd polybar picom nitrogen kitty rofi \
-                zsh vim ranger firefox neofetch reflector rsync \
+sudo pacman -S  xorg-server xorg-xinit bspwm sxhkd polybar picom nitrogen kitty rofi \
+                zsh vim ranger firefox reflector rsync \
                 thunar lxappearance pacman-contrib fish exa \
                 thunar-volman gvfs brightnessctl
 
