@@ -4,10 +4,10 @@
 sudo pacman -Syu
 
 # install grub
-sudo pacman -S grub os-prober
-sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-sudo os-prober
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+#sudo pacman -S grub os-prober
+#sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+#sudo os-prober
+#sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # install yay
 sudo pacman -S --needed git base-devel
@@ -28,22 +28,16 @@ case $yn in
 esac
 
 # install everything else
-sudo pacman -S  sddm bspwm sxhkd polybar picom nitrogen kitty rofi \
+sudo pacman -S  bspwm sxhkd polybar picom nitrogen kitty rofi \
                 zsh vim ranger firefox neofetch reflector rsync \
                 thunar lxappearance pacman-contrib fish exa \
-                thunar-volman gvfs brightnessctl xfce4-settings-manager \
+                thunar-volman gvfs brightnessctl xfce4-settings \
                 rofi-calc
 
 yay -S visual-studio-code-bin ksuperkey i3lock-fancy
 
 # fix dual boot time issue
-sudo timedatectl set-local-rtc 1
-
-# set up display stuff
-sudo systemctl enable sddm.service
-sudo pacman -S qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
-sudo cp sddm.conf /etc
-sudo cp -r sddm/* /usr/share/sddm/themes/
+#sudo timedatectl set-local-rtc 1
 
 # set up bspwm
 cp -r bspwm ~/.config/
