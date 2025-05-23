@@ -28,8 +28,8 @@ case $yn in
 esac
 
 # install everything else
-sudo pacman -S  bspwm sxhkd polybar picom nitrogen kitty rofi \
-                zsh vim ranger firefox neofetch reflector rsync \
+sudo pacman -S  xorg-server xorg-xinit bspwm sxhkd polybar picom nitrogen kitty rofi \
+                zsh vim ranger firefox reflector rsync \
                 thunar lxappearance pacman-contrib fish exa \
                 thunar-volman gvfs brightnessctl xfce4-settings \
                 rofi-calc
