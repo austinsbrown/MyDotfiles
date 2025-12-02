@@ -60,7 +60,7 @@ cp -r picom ~/.config/
 
 # set up nitrogen
 sudo mkdir /usr/share/backgrounds
-sudo cp -r backgrounds/* /usr/share/backgrounds
+sudo cp -r ../Wallpapers/* /usr/share/backgrounds
 mkdir ~/.config/nitrogen
 cp -r nitrogen/* ~/.config/nitrogen
 
