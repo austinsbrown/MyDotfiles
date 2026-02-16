@@ -172,6 +172,7 @@
 		gnome-terminal
 		git
 		lshw
+		starship
 		wget
 		nautilus
 		gnome-tweaks
