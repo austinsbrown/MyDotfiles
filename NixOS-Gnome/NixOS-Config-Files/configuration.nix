@@ -170,25 +170,28 @@
 	[
 		vim
 		gnome-terminal
-		git
-		lshw
-		starship
-		wget
-		nautilus
-		gnome-tweaks
-		baobab
-		gnome-software
-		parted
-		gparted
-		vlc
-		resources
-		nerd-fonts.jetbrains-mono
 		gnomeExtensions.just-perfection
 		gnomeExtensions.blur-my-shell
 		gnomeExtensions.caffeine
 		gnomeExtensions.dash-to-dock
 		gnomeExtensions.user-themes
 		gnomeExtensions.appindicator
+		gnomeExtensions.desktop-icons-ng-ding
+		git
+		lshw
+		ncdu
+		starship
+		wget
+		nautilus
+		gnome-tweaks
+		gnome-software
+		parted
+		gparted
+		vlc
+		impression
+		resources
+		nerd-fonts.jetbrains-mono
+		onlyoffice-desktopeditors
 	];
 
 
