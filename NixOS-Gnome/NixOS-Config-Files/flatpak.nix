@@ -5,12 +5,12 @@ let
 	# 1. Declare the Flatpaks you *want* on your system
 	desiredFlatpaks = 
 	[
-		"com.spotify.Client"
 		"com.visualstudio.code"
 		"com.discordapp.Discord"
 		"com.valvesoftware.Steam"
 		"org.mozilla.firefox"
 		"md.obsidian.Obsidian"
+		"io.podman_desktop.PodmanDesktop"
   	];
 	
 in {

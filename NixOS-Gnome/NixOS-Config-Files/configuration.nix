@@ -37,7 +37,7 @@
 
 		# Fine-grained power management. Turns off GPU when not in use.
 		# Experimental and only works on modern Nvidia GPUs (Turing or newer).
-		powerManagement.finegrained = false;
+		powerManagement.finegrained = true;
 
 		# Use the NVidia open source kernel module (not to be confused with the
 		# independent third-party "nouveau" open source driver).
@@ -156,7 +156,7 @@
 	{
 		isNormalUser = true;
 		description = "austinsbrown";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [ "networkmanager" "wheel" "podman"];
 		shell = pkgs.fish;
 		packages = with pkgs; [];
 	};
@@ -194,6 +194,16 @@
 		onlyoffice-desktopeditors
 	];
 
+	virtualisation = 
+	{
+  		containers.enable = true;
+  		podman = 
+		{
+			enable = true;
+			dockerCompat = true;
+    		defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
+  		};
+	};
 
 	# Enable the OpenSSH daemon.
 	# services.openssh.enable = true;s
