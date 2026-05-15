@@ -10,6 +10,7 @@
 		./hardware-configuration.nix
 		# Include script for declarative flatpack managment
 		./flatpak.nix
+		./nvidia-hybrid.nix
 	];
 
 	# Bootloader.
@@ -100,7 +101,7 @@
 	{
 		isNormalUser = true;
 		description = "austinsbrown";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [ "networkmanager" "wheel" "podman"];
 		shell = pkgs.fish;
 		packages = with pkgs; [];
 	};
@@ -114,25 +115,40 @@
 	[
 		vim
 		gnome-terminal
-		git
-		wget
-		nautilus
-		gnome-tweaks
-		baobab
-		gnome-software
-		parted
-		gparted
-		vlc
-		resources
-		nerd-fonts.jetbrains-mono
 		gnomeExtensions.just-perfection
 		gnomeExtensions.blur-my-shell
 		gnomeExtensions.caffeine
 		gnomeExtensions.dash-to-dock
 		gnomeExtensions.user-themes
 		gnomeExtensions.appindicator
+		gnomeExtensions.desktop-icons-ng-ding
+		git
+		lshw
+		ncdu
+		starship
+		wget
+		nautilus
+		gnome-tweaks
+		gnome-software
+		parted
+		gparted
+		vlc
+		impression
+		resources
+		nerd-fonts.jetbrains-mono
+		onlyoffice-desktopeditors
 	];
 
+	virtualisation = 
+	{
+  		containers.enable = true;
+  		podman = 
+		{
+			enable = true;
+			dockerCompat = true;
+    		defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
+  		};
+	};
 
 	# Enable the OpenSSH daemon.
 	# services.openssh.enable = true;s
