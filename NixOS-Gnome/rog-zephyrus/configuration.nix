@@ -9,7 +9,7 @@
 	[ # Include the results of the hardware scan.
 		./hardware-configuration.nix
 		# Include script for declarative flatpack managment
-		./flatpak.nix
+		#./flatpak.nix
 		./nvidia-hybrid.nix
 	];
 
@@ -114,6 +114,8 @@
 	environment.systemPackages = with pkgs; 
 	[
 		vim
+		discord
+		firefox
 		gnome-terminal
 		gnomeExtensions.just-perfection
 		gnomeExtensions.blur-my-shell
@@ -137,7 +139,14 @@
 		resources
 		nerd-fonts.jetbrains-mono
 		onlyoffice-desktopeditors
+		spotify
+		tela-icon-theme
+		vscode.fhs
 	];
+
+	programs.steam = {
+  		enable = true;
+	};
 
 	virtualisation = 
 	{
