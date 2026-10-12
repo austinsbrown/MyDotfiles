@@ -113,10 +113,10 @@
 	# $ nix search wget
 	environment.systemPackages = with pkgs; 
 	[
-		vim
 		discord
+		eza
 		firefox
-		gnome-terminal
+		git
 		gnomeExtensions.just-perfection
 		gnomeExtensions.blur-my-shell
 		gnomeExtensions.caffeine
@@ -124,26 +124,28 @@
 		gnomeExtensions.user-themes
 		gnomeExtensions.appindicator
 		gnomeExtensions.desktop-icons-ng-ding
-		git
-		lshw
-		ncdu
-		starship
-		mangohud
-		wget
-		nautilus
-		gnome-tweaks
 		gnome-software
-		parted
+		gnome-terminal
+		gnome-tweaks
 		gparted
-		vlc
 		impression
-		resources
+		lshw
+		mangohud
+		nautilus
+		ncdu
 		nerd-fonts.jetbrains-mono
 		obsidian
 		onlyoffice-desktopeditors
+		parted
+		resources
 		spotify
+		starship
 		tela-icon-theme
+		vim
+		vlc
 		vscode.fhs
+		wget
+		yazi
 	];
 
 	programs.steam = {
