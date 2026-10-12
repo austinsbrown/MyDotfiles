@@ -128,6 +128,7 @@
 		lshw
 		ncdu
 		starship
+		mangohud
 		wget
 		nautilus
 		gnome-tweaks
@@ -138,6 +139,7 @@
 		impression
 		resources
 		nerd-fonts.jetbrains-mono
+		obsidian
 		onlyoffice-desktopeditors
 		spotify
 		tela-icon-theme
@@ -146,7 +148,10 @@
 
 	programs.steam = {
   		enable = true;
+		gamescopeSession.enable = true;
 	};
+
+	programs.gamemode.enable = true;
 
 	virtualisation = 
 	{
