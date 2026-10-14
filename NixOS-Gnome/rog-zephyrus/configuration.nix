@@ -10,6 +10,7 @@
 		./hardware-configuration.nix
 		# Include script for declarative flatpack managment
 		#./flatpak.nix
+		./gnome.nix
 		./nvidia-hybrid.nix
 	];
 
@@ -49,16 +50,8 @@
 	# Enable the X11 windowing system.
 	services.xserver.enable = true;
 
-	##### Enable the GNOME Desktop Environment. #####
+	# Enable display manager.
 	services.displayManager.gdm.enable = true;
-	services.desktopManager.gnome.enable = true;
-
-	# To disable installing GNOME's suite of applications
-	# and only be left with GNOME shell.
-	services.gnome.core-apps.enable = false;
-	services.gnome.core-developer-tools.enable = false;
-	services.gnome.games.enable = false;
-	environment.gnome.excludePackages = with pkgs; [gnome-tour];
 
 	# Enable Flatpaks
 	services.flatpak.enable = true;
@@ -117,16 +110,6 @@
 		eza
 		firefox
 		git
-		gnomeExtensions.just-perfection
-		gnomeExtensions.blur-my-shell
-		gnomeExtensions.caffeine
-		gnomeExtensions.dash-to-dock
-		gnomeExtensions.user-themes
-		gnomeExtensions.appindicator
-		gnomeExtensions.desktop-icons-ng-ding
-		gnome-software
-		gnome-terminal
-		gnome-tweaks
 		gparted
 		impression
 		lshw
