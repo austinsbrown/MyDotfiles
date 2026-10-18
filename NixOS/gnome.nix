@@ -18,6 +18,7 @@
 		gnomeExtensions.caffeine
 		gnomeExtensions.dash-to-dock
         gnomeExtensions.desktop-icons-ng-ding
+		gnomeExtensions.gamemode-shell-extension
         gnomeExtensions.just-perfection
 		gnomeExtensions.user-themes
         gnome-software
