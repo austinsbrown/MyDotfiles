@@ -12,6 +12,7 @@
 		#./flatpak.nix
 		./gnome.nix
 		./nvidia-hybrid.nix
+		./plasma.nix
 	];
 
 	# Bootloader.
