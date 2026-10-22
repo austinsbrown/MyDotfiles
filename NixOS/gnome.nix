@@ -24,6 +24,8 @@
         gnome-software
         gnome-tweaks
         gnome-terminal
+		gparted
+		nautilus
     ];
 }
 
