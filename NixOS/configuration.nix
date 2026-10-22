@@ -111,16 +111,13 @@
 		eza
 		firefox
 		git
-		gparted
 		impression
 		lshw
 		mangohud
-		nautilus
 		ncdu
 		nerd-fonts.jetbrains-mono
 		obsidian
 		onlyoffice-desktopeditors
-		parted
 		resources
 		spotify
 		starship
