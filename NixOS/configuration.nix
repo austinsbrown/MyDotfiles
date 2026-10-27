@@ -112,6 +112,7 @@
 		firefox
 		git
 		impression
+		kitty
 		lshw
 		mangohud
 		ncdu
