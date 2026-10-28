@@ -123,7 +123,6 @@
 		resources
 		spotify
 		starship
-		tela-icon-theme
 		vim
 		vlc
 		vscode.fhs
