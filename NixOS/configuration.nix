@@ -110,15 +110,16 @@
 		discord
 		eza
 		firefox
+		gdu
 		git
 		impression
 		kitty
 		lshw
 		mangohud
-		ncdu
 		nerd-fonts.jetbrains-mono
 		obsidian
 		onlyoffice-desktopeditors
+		python3
 		resources
 		spotify
 		starship
