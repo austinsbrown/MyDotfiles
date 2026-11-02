@@ -1,0 +1,68 @@
+# Aurorae theme config for Everblush (port of xfwm4 Everblush-xfwm)
+# Read by the aurorae v2 renderer (KWin 6.6). Values are logical pixels.
+
+[General]
+ActiveTextColor=187,187,187
+# #bbbbbb at ~50% over the #21282a titlebar
+InactiveTextColor=110,114,115
+UseTextShadow=false
+ActiveTextShadowColor=0,0,0,0
+InactiveTextShadowColor=0,0,0,0
+TextShadowOffsetX=0
+TextShadowOffsetY=0
+HaloActive=false
+HaloInactive=false
+TitleAlignment=Left
+TitleVerticalAlignment=Center
+# xfwm did not animate button states
+Animation=0
+Shadow=true
+DecorationPosition=0
+ButtonGroupHover=false
+
+[Layout]
+# Thin frame so the window can still be resized (xfwm side/bottom frame was 4px).
+BorderLeft=4
+BorderRight=4
+BorderBottom=4
+BorderTop=0
+
+# Titlebar = max(TitleHeight, ButtonHeight + ButtonMarginTop) + TitleEdgeTop + TitleEdgeBottom = 36
+TitleHeight=36
+TitleEdgeTop=0
+TitleEdgeBottom=0
+# buttons sit 3px in from the frame edge (xfwm button_offset=3)
+TitleEdgeLeft=3
+TitleEdgeRight=3
+TitleEdgeTopMaximized=0
+TitleEdgeBottomMaximized=0
+TitleEdgeLeftMaximized=3
+TitleEdgeRightMaximized=3
+# caption starts TitleEdgeLeft + TitleBorderLeft = 8px in (xfwm: button_offset 3 + title_horizontal_offset 5)
+TitleBorderLeft=5
+TitleBorderRight=5
+
+# 30x36 buttons, no spacing, as in xfwm
+ButtonWidth=30
+ButtonWidthMinimize=30
+ButtonWidthMaximizeRestore=30
+ButtonWidthClose=30
+ButtonWidthAlldesktops=30
+ButtonWidthKeepabove=30
+ButtonWidthKeepbelow=30
+ButtonWidthShade=30
+ButtonWidthHelp=30
+ButtonWidthMenu=30
+ButtonWidthAppMenu=30
+ButtonHeight=36
+ButtonSpacing=0
+ButtonMarginTop=0
+ButtonMarginTopMaximized=0
+ExplicitButtonSpacer=10
+
+# Shadow baked into decoration.svg: 16px blur, offset 4px down.
+# Must match PL/PR/PT/PB in ../../generate.py.
+PaddingLeft=16
+PaddingRight=16
+PaddingTop=12
+PaddingBottom=20
