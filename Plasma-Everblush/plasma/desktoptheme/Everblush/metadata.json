@@ -1,0 +1,23 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "",
+                "Name": "Austin Brown"
+            },
+            {
+                "Name": "Everblush palette by Mangeshrex; XFCE rice by mehedirm6244 (Miserable_Xfce)"
+            }
+        ],
+        "Category": "",
+        "Description": "Flat, dark Plasma Style ported from the Everblush XFCE rice",
+        "EnabledByDefault": true,
+        "Id": "Everblush",
+        "License": "GPL-3.0",
+        "Name": "Everblush",
+        "Version": "1.0",
+        "Website": "https://github.com/mehedirm6244/Miserable_Xfce/tree/Everblush"
+    },
+    "X-Plasma-API": "5.0",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Everblush
+Comment=Port of the Everblush-xfwm xfwm4 theme: flat #21282a titlebar with dotted window buttons
+X-KDE-PluginInfo-Name=Everblush
+X-KDE-PluginInfo-Author=Everblush port (from mehedirm6244/Miserable_Xfce)
+X-KDE-PluginInfo-Email=
+X-KDE-PluginInfo-Website=https://github.com/mehedirm6244/Miserable_Xfce/tree/Everblush
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-License=GPL-3.0-or-later
+X-KDE-PluginInfo-Category=
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-EnabledByDefault=true

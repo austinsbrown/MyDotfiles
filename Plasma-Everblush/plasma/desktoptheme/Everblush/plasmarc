@@ -1,0 +1,16 @@
+# Everblush Plasma Style settings.
+# The panel is translucent #21282a with blur behind it; popups and tooltips
+# stay fully opaque like the XFCE original.  Adaptive transparency lets the
+# panel switch to the opaque solid/ variant when a window is maximized.
+
+[Settings]
+FallbackTheme=default
+
+[ContrastEffect]
+enabled=false
+
+[BlurBehindEffect]
+enabled=true
+
+[AdaptiveTransparency]
+enabled=true
