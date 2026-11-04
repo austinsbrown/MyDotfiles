@@ -18,7 +18,8 @@ INACT = "#dadada"
 TITLE_H = 36            # BorderTop = TitleHeight + TitleEdgeTop/Bottom
 B = 4                   # BorderLeft/Right/Bottom (xfwm side frame was 4px)
 PL, PR, PT, PB = 16, 16, 12, 20   # Padding* = shadow area
-RADIUS = 4              # top corner radius (<= B so it fits in the corner slice)
+RADIUS = 5              # corner radius, as Breeze (Frame_FrameRadius 2.5 * smallSpacing 2px)
+C = max(B, RADIUS)      # window part of the corner slices, big enough to hold the arc
 SH_R, SH_DY = 16, 4     # shadow blur reach and downward offset (PT = R - DY, PB = R + DY)
 assert PT == SH_R - SH_DY and PB == SH_R + SH_DY and PL == SH_R and PR == SH_R
 EDGE = 10               # length of the stretchable edge / center slices
@@ -47,15 +48,17 @@ def bounds(x, y, w, h):
     return rect(x, y, w, h, "#000000", ' fill-opacity="0"')
 
 
-def shadow_cells(defs, sx, sy, sw, sh, R, a0):
-    """Fill slice [sx,sx+sw]x[sy,sy+sh] with the shadow of rect R=(x0,y0,x1,y1)."""
+def shadow_cells(defs, sx, sy, sw, sh, R, client, a0):
+    """Fill slice [sx,sx+sw]x[sy,sy+sh] with the shadow of rect R=(x0,y0,x1,y1), except under the client rect."""
     x0, y0, x1, y1 = R
-    xs = sorted(set([sx, sx + sw] + [v for v in (x0, x1) if sx < v < sx + sw]))
-    ys = sorted(set([sy, sy + sh] + [v for v in (y0, y1) if sy < v < sy + sh]))
+    xs = sorted(set([sx, sx + sw] + [v for v in (x0, x1, client[0], client[2]) if sx < v < sx + sw]))
+    ys = sorted(set([sy, sy + sh] + [v for v in (y0, y1, client[1], client[3]) if sy < v < sy + sh]))
     out = []
     for i in range(len(xs) - 1):
         for j in range(len(ys) - 1):
             cx0, cx1, cy0, cy1 = xs[i], xs[i + 1], ys[j], ys[j + 1]
+            if client[0] <= cx0 and cx1 <= client[2] and client[1] <= cy0 and cy1 <= client[3]:
+                continue  # would show through translucent windows
             hx = "l" if cx1 <= x0 else ("r" if cx0 >= x1 else "m")
             vy = "t" if cy1 <= y0 else ("b" if cy0 >= y1 else "m")
             _gid[0] += 1
@@ -85,13 +88,14 @@ def shadow_cells(defs, sx, sy, sw, sh, R, a0):
 
 def frame_set(defs, prefix, ox, oy, a0):
     """A normal (shadowed) frame laid out as a mini window at (ox, oy)."""
-    LW, RW = PL + B, PR + B
-    TH, BH = PT + TITLE_H, B + PB
+    LW, RW = PL + C, PR + C
+    TH, BH = PT + TITLE_H, C + PB
     W = LW + EDGE + RW
     H = TH + EDGE + BH
     # window (decoration) rect and the offset shadow-caster rect, absolute coords
     wx0, wy0, wx1, wy1 = ox + PL, oy + PT, ox + W - PR, oy + H - PB
     R = (wx0, wy0 + SH_DY, wx1, wy1 + SH_DY)
+    client = (wx0 + B, wy0 + TITLE_H, wx1 - B, wy1 - B)
     cols = [(ox, LW), (ox + LW, EDGE), (ox + LW + EDGE, RW)]
     rows = [(oy, TH), (oy + TH, EDGE), (oy + TH + EDGE, BH)]
     names = [["topleft", "top", "topright"], ["left", "center", "right"], ["bottomleft", "bottom", "bottomright"]]
@@ -102,7 +106,7 @@ def frame_set(defs, prefix, ox, oy, a0):
             name = names[j][i]
             parts = [bounds(sx, sy, sw, sh)]
             if name != "center":
-                parts += shadow_cells(defs, sx, sy, sw, sh, R, a0)
+                parts += shadow_cells(defs, sx, sy, sw, sh, R, client, a0)
             # opaque window part of this slice
             if name == "topleft":
                 parts.append('<path d="M%s,%s V%s A%s,%s 0 0 1 %s,%s H%s V%s Z" fill="%s"/>' % (
@@ -119,11 +123,16 @@ def frame_set(defs, prefix, ox, oy, a0):
             elif name == "right":
                 parts.append(rect(wx1 - B, sy, B, sh, TITLE))
             elif name == "bottom":
-                parts.append(rect(sx, sy, sw, B, TITLE))
+                parts.append(rect(sx, wy1 - B, sw, B, TITLE))
             elif name == "bottomleft":
-                parts.append(rect(wx0, sy, B, B, TITLE))
+                # L-shaped border piece (the inside of the L is client area)
+                parts.append('<path d="M%s,%s H%s V%s H%s V%s H%s A%s,%s 0 0 1 %s,%s Z" fill="%s"/>' % (
+                    fmt(wx0), fmt(sy), fmt(wx0 + B), fmt(wy1 - B), fmt(sx + sw), fmt(wy1), fmt(wx0 + r), r, r,
+                    fmt(wx0), fmt(wy1 - r), TITLE))
             elif name == "bottomright":
-                parts.append(rect(wx1 - B, sy, B, B, TITLE))
+                parts.append('<path d="M%s,%s H%s V%s H%s V%s H%s A%s,%s 0 0 0 %s,%s Z" fill="%s"/>' % (
+                    fmt(wx1), fmt(sy), fmt(wx1 - B), fmt(wy1 - B), fmt(sx), fmt(wy1), fmt(wx1 - r), r, r,
+                    fmt(wx1), fmt(wy1 - r), TITLE))
             out.append('<g id="%s-%s">%s</g>' % (prefix, name, "".join(parts)))
     return out, W, H
 
