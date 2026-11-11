@@ -9,8 +9,8 @@
 	[ # Include the results of the hardware scan.
 		./hardware-configuration.nix
 		# Include script for declarative flatpack managment
-		#./flatpak.nix
-		./gnome.nix
+		# ./flatpak.nix
+		# ./gnome.nix
 		./nvidia-hybrid.nix
 		./plasma.nix
 	];
