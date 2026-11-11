@@ -121,7 +121,7 @@
 		onlyoffice-desktopeditors
 		python3
 		resources
-		spotify
+		# spotify
 		starship
 		vim
 		vlc
@@ -129,6 +129,19 @@
 		wget
 		yazi
 	];
+
+	hardware.bluetooth = 
+	{
+    	enable = true;          # Enables support for Bluetooth
+    	powerOnBoot = true;     # Powers up the default Bluetooth controller on boot
+    	settings = 
+		{
+      		Policy = 
+			{
+        		AutoEnable = "true";  # Automatically power up all controllers
+	  		};
+		};
+	};
 
 	programs.steam = {
   		enable = true;
