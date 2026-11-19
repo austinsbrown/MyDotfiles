@@ -13,6 +13,7 @@
 		# ./gnome.nix
 		./nvidia-hybrid.nix
 		./plasma.nix
+		./gaming.nix
 	];
 
 	# Bootloader.
@@ -115,7 +116,6 @@
 		impression
 		kitty
 		lshw
-		mangohud
 		nerd-fonts.jetbrains-mono
 		obsidian
 		onlyoffice-desktopeditors
@@ -142,13 +142,6 @@
 	  		};
 		};
 	};
-
-	programs.steam = {
-  		enable = true;
-		gamescopeSession.enable = true;
-	};
-
-	programs.gamemode.enable = true;
 
 	virtualisation = 
 	{
