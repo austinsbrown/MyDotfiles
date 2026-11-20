@@ -8,7 +8,7 @@
 	imports =
 	[ # Include the results of the hardware scan.
 		./hardware-configuration.nix
-		# Include script for declarative flatpack managment
+		# Include script for declarative flatpak management
 		# ./flatpak.nix
 		# ./gnome.nix
 		./nvidia-hybrid.nix
@@ -36,7 +36,7 @@
 	# Select internationalisation properties.
 	i18n.defaultLocale = "en_US.UTF-8";
 
-	i18n.extraLocaleSettings = 
+	i18n.extraLocaleSettings =
 	{
 		LC_ADDRESS = "en_US.UTF-8";
 		LC_IDENTIFICATION = "en_US.UTF-8";
@@ -52,14 +52,11 @@
 	# Enable the X11 windowing system.
 	services.xserver.enable = true;
 
-	# Enable display manager.
-	services.displayManager.gdm.enable = true;
-
 	# Enable Flatpaks
 	services.flatpak.enable = true;
 
 	# Configure keymap in X11
-	services.xserver.xkb = 
+	services.xserver.xkb =
 	{
 		layout = "us";
 		variant = "";
@@ -71,7 +68,7 @@
 	# Enable sound with pipewire.
 	services.pulseaudio.enable = false;
 	security.rtkit.enable = true;
-	services.pipewire = 
+	services.pipewire =
 	{
 		enable = true;
 		alsa.enable = true;
@@ -83,7 +80,7 @@
 		# use the example session manager (no others are packaged yet so this is enabled by default,
 		# no need to redefine it in your config for now)
 		#media-session.enable = true;
-  	};
+	};
 
 	# Enable touchpad support (enabled default in most desktopManager).
 	# services.xserver.libinput.enable = true;
@@ -92,7 +89,7 @@
 	programs.fish.enable = true;
 
 	# Define a user account. Don't forget to set a password with ‘passwd’.
-	users.users.austinsbrown = 
+	users.users.austinsbrown =
 	{
 		isNormalUser = true;
 		description = "austinsbrown";
@@ -106,7 +103,7 @@
 
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
-	environment.systemPackages = with pkgs; 
+	environment.systemPackages = with pkgs;
 	[
 		discord
 		eza
@@ -116,7 +113,6 @@
 		impression
 		kitty
 		lshw
-		nerd-fonts.jetbrains-mono
 		obsidian
 		onlyoffice-desktopeditors
 		python3
@@ -130,32 +126,30 @@
 		yazi
 	];
 
-	hardware.bluetooth = 
+	fonts.packages = with pkgs;
+	[
+		nerd-fonts.jetbrains-mono
+	];
+
+	hardware.bluetooth =
 	{
-    	enable = true;          # Enables support for Bluetooth
-    	powerOnBoot = true;     # Powers up the default Bluetooth controller on boot
-    	settings = 
-		{
-      		Policy = 
-			{
-        		AutoEnable = "true";  # Automatically power up all controllers
-	  		};
-		};
+		enable = true;          # Enables support for Bluetooth
+		powerOnBoot = true;     # Powers up the default Bluetooth controller on boot
 	};
 
-	virtualisation = 
+	virtualisation =
 	{
-  		containers.enable = true;
-  		podman = 
+		containers.enable = true;
+		podman =
 		{
 			enable = true;
 			dockerCompat = true;
-    		defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
-  		};
+			defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
+		};
 	};
 
 	# Enable the OpenSSH daemon.
-	# services.openssh.enable = true;s
+	# services.openssh.enable = true;
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions

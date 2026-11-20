@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+	# Enable display manager.
+	services.displayManager.gdm.enable = true;
+
 	##### Enable the GNOME Desktop Environment. #####
 	services.desktopManager.gnome.enable = true;
 
@@ -11,21 +14,20 @@
 	services.gnome.games.enable = false;
 	environment.gnome.excludePackages = with pkgs; [gnome-tour];
 
-    environment.systemPackages = with pkgs; 
+	environment.systemPackages = with pkgs;
 	[
 		gnomeExtensions.appindicator
 		gnomeExtensions.blur-my-shell
 		gnomeExtensions.caffeine
 		gnomeExtensions.dash-to-dock
-        gnomeExtensions.desktop-icons-ng-ding
+		gnomeExtensions.desktop-icons-ng-ding
 		gnomeExtensions.gamemode-shell-extension
-        gnomeExtensions.just-perfection
+		gnomeExtensions.just-perfection
 		gnomeExtensions.user-themes
-        gnome-software
-        gnome-tweaks
-        gnome-terminal
+		gnome-software
+		gnome-tweaks
+		gnome-terminal
 		gparted
 		nautilus
-    ];
+	];
 }
-

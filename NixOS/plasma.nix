@@ -1,24 +1,24 @@
 { config, pkgs, ... }:
 
 {
-    services = 
-    {
-        desktopManager.plasma6.enable = true;
-        displayManager.plasma-login-manager.enable = true;
-    };
-    
-    programs.partition-manager.enable = true;
+	services =
+	{
+		desktopManager.plasma6.enable = true;
+		displayManager.plasma-login-manager.enable = true;
+	};
 
-    environment.systemPackages = with pkgs; 
+	programs.partition-manager.enable = true;
+
+	environment.systemPackages = with pkgs;
 	[
 		konsave
-    ];
+	];
 
-    environment.plasma6.excludePackages = with pkgs.kdePackages; 
-    [
-        discover
-        kate
-        konsole
-        plasma-systemmonitor
-    ];
+	environment.plasma6.excludePackages = with pkgs.kdePackages;
+	[
+		discover
+		kate
+		konsole
+		plasma-systemmonitor
+	];
 }

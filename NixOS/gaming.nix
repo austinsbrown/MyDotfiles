@@ -2,24 +2,26 @@
 
 {
 	programs.gamemode.enable = true;
-	programs.gamescope = 
-    {
-        enable = true;
-        capSysNice = false; # Gives higher CPU scheduling priority
+	programs.gamescope =
+	{
+		enable = true;
+		capSysNice = false; # true would give gamescope higher CPU scheduling priority, but breaks running it inside Steam
 
-        # Enable HDR
-        env = 
-        {
-            ENABLE_GAMESCOPE_WSI = "1";
-        };
-    };
+		# Enable HDR (also applies to the Steam gamescope session)
+		args = [ "--hdr-enabled" ];
 
-    programs.steam = 
-    {
-  		enable = true;
+		# Enable gamescope's Vulkan WSI layer
+		env =
+		{
+			ENABLE_GAMESCOPE_WSI = "1";
+		};
+	};
+
+	programs.steam =
+	{
+		enable = true;
 		gamescopeSession.enable = true;
 	};
 
-    environment.systemPackages = with pkgs; [mangohud];
+	environment.systemPackages = with pkgs; [mangohud];
 }
-

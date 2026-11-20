@@ -17,6 +17,7 @@ My personal Linux configs, grouped by the environment they're for.
 - `gnome.nix`: GNOME without the core app suite, plus shell extensions
 - `plasma.nix`: Plasma 6 and konsave
 - `nvidia-hybrid.nix`: Nvidia driver with PRIME offload. Check the bus IDs for your hardware.
+- `gaming.nix`: Steam with a gamescope session (HDR enabled), gamemode and MangoHud
 - `flatpak.nix`: declarative Flatpak management (disabled by default)
 
 `hardware-configuration.nix` isn't in the repo. Use the one NixOS generates for your machine.
